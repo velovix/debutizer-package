@@ -11,17 +11,10 @@ jobs:
     environment: prod
     steps:
       - uses: actions/checkout@v2
-      - name: Install Debutizer
-        uses: myci-actions/add-deb-repo@10
-        with:
-          repo: deb http://apt.debutizer.dev focal main
-          repo-name: debutizer
-          keys-asc: https://raw.githubusercontent.com/velovix/debutizer/main/debutizer.key
-          install: debutizer
-      - name: Build APT Packages
-        run: python -m debutizer build
+      - name: Build
+        uses: ./.github/actions/debutizer-build
       - name: Upload APT Packages
-        run: python -m debutizer s3-repo upload --profile prod
+        run: debutizer s3-repo upload --profile prod
         env:
           DEBUTIZER_ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
           DEBUTIZER_SECRET_KEY: ${{ secrets.SECRET_KEY }}

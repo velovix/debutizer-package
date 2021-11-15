@@ -1,0 +1,29 @@
+name: Build Debutizer Packages
+description: Builds Debutier packages in a package directory
+
+runs:
+  using: composite
+  steps:
+  - name: Install Debutizer
+    uses: ./.github/actions/debutizer-install
+  - name: Get Latest Debian Keyrings
+    shell: bash
+    run: |
+      sudo apt-get install rsync
+      sudo rsync -az --progress keyring.debian.org::keyrings/keyrings/ /usr/local/share/keyrings
+      # Tell dscverify to use these keyrings
+      echo 'DSCVERIFY_KEYRINGS="/usr/local/share/keyrings/debian-keyring.gpg:/usr/local/share/keyrings/debian-maintainers.gpg"' \
+        | sudo tee /etc/devscripts.conf
+  - name: Give Cache Access to Chroots
+    shell: bash
+    run: |
+      sudo mkdir -p /var/cache/pbuilder
+      sudo chown $(whoami) /var/cache/pbuilder
+  - name: Cache Chroots
+    uses: actions/cache@v2
+    with:
+      path: /var/cache/pbuilder/debutizer-*.tgz
+      key: chroots-v3
+  - name: Build Packages
+    shell: bash
+    run: debutizer build

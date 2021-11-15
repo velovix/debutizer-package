@@ -8,16 +8,9 @@ jobs:
     environment: stage
     steps:
       - uses: actions/checkout@v2
-      - name: Install Debutizer
-        uses: myci-actions/add-deb-repo@10
-        with:
-          repo: deb http://apt.debutizer.dev focal main
-          repo-name: debutizer
-          keys-asc: https://raw.githubusercontent.com/velovix/debutizer/main/debutizer.key
-          install: debutizer
-      - name: Build APT Packages
-        run: python -m debutizer build
-      - name: Upload APT Packages
+      - name: Build
+        uses: ./.github/actions/debutizer-build
+      - name: Upload
         run: python -m debutizer s3-repo upload --profile stage
         env:
           DEBUTIZER_ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
