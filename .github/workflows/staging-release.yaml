@@ -10,7 +10,13 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/actions/install-dependencies
+      - name: Install Debutizer
+        uses: myci-actions/add-deb-repo@10
+        with:
+          repo: deb http://apt.debutizer.dev focal main
+          repo-name: debutizer
+          keys-asc: https://raw.githubusercontent.com/velovix/debutizer/main/debutizer.key
+          install: debutizer
       - name: Build APT Packages
         run: python -m debutizer build
       - name: Upload APT Packages
