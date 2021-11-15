@@ -2,7 +2,7 @@ distributions:
   - bionic
   - focal
   - hirsute
-upstream_repo: http://ppa.launchpad.net/velovix/debutizer/ubuntu
+upstream_repo: http://apt.debutizer.dev
 upstream_components: [main]
 upstream_is_trusted: true
 s3_repo:
