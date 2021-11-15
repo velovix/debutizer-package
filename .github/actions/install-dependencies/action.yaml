@@ -1,0 +1,24 @@
+name: Install Dependencies
+description: Installs system and Python dependencies for Debutizer
+
+runs:
+  using: composite
+  steps:
+  # TODO: Find a way to pull this from tests/resources/local_upstreams/debutizer
+  - name: Install system dependencies
+    run: >
+      sudo apt-get update &&
+      sudo apt-get install
+      pbuilder
+      devscripts
+      quilt
+      debian-keyring
+      s3fs
+      python3-setuptools
+      python3-pip
+      python3-debian
+      python3-requests
+      python3-xdg
+      python3-flask
+      python3-yaml
+    shell: bash
