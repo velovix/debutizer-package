@@ -18,7 +18,7 @@ _AUTHOR = "Tyler Compton <xaviosx@gmail.com>"
 
 upstream = SourceRepositoryUpstream(
     name="debutizer",
-    version=Version.from_string("0.6.0-1"),
+    version=Version.from_string("0.7.0-1"),
     repository_url=_REPOSITORY_URL,
     revision_format="v{upstream_version}",
 )
@@ -175,6 +175,17 @@ source_package.changelog.add(
     changes=["* Migrate some configuration to a file"],
     author=_AUTHOR,
     date=datetime(2021, 11, 8, 23, 59),
+)
+
+source_package.changelog.add(
+    version="0.7.0-1",
+    urgency="medium",
+    changes=[
+        "* Third party package sources may now be added to the build environment",
+        "* Source packages can now be uploaded to a PPA",
+    ],
+    author=_AUTHOR,
+    date=datetime(2021, 11, 14, 22, 36),
 )
 
 source_package.complete()
