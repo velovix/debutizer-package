@@ -26,4 +26,4 @@ runs:
       key: chroots-v3
   - name: Build Packages
     shell: bash
-    run: debutizer build
+    run: sudo debutizer build
