@@ -18,7 +18,7 @@ _AUTHOR = "Tyler Compton <xaviosx@gmail.com>"
 
 upstream = SourceRepositoryUpstream(
     name="debutizer",
-    version=Version.from_string("0.8.0-1"),
+    version=Version.from_string("0.9.0-1"),
     repository_url=_REPOSITORY_URL,
     revision_format="v{upstream_version}",
 )
@@ -198,6 +198,17 @@ source_package.changelog.add(
     ],
     author=_AUTHOR,
     date=datetime(2021, 11, 15, 0, 51),
+)
+
+source_package.changelog.add(
+    version="0.9.0-1",
+    urgency="medium",
+    changes=[
+        "* Remove profiles from the configuration file",
+        "* Unify the upload command",
+    ],
+    author=_AUTHOR,
+    date=datetime(2021, 11, 16, 1, 42),
 )
 
 source_package.complete()
