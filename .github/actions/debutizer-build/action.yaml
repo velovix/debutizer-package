@@ -26,4 +26,8 @@ runs:
       key: chroots-v3
   - name: Build Packages
     shell: bash
-    run: sudo debutizer build
+    run:  debutizer build
+    env:
+      # Using sudo to selectively get root permissions works well in CI,
+      # since sudo is configured to be password-less
+      DEBUTIZER_ACQUIRE_ROOT: "1"
