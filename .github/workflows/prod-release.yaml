@@ -13,8 +13,10 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build
         uses: ./.github/actions/debutizer-build
-      - name: Upload APT Packages
-        run: debutizer s3-repo upload --profile prod
+        with:
+          config_file: debutizer.prod.yaml
+      - name: Upload
+        run: debutizer upload --config-file debutizer.prod.yaml
         env:
           DEBUTIZER_ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
           DEBUTIZER_SECRET_KEY: ${{ secrets.SECRET_KEY }}

@@ -3,15 +3,17 @@ name: Staging Release
 on: [push]
 
 jobs:
-  deploy-packages:
+  s3-repo-upload:
     runs-on: ubuntu-20.04
     environment: stage
     steps:
       - uses: actions/checkout@v2
       - name: Build
         uses: ./.github/actions/debutizer-build
+        with:
+          config_file: debutizer.stage.yaml
       - name: Upload
-        run: python -m debutizer s3-repo upload --profile stage
+        run: debutizer upload --config-file debutizer.stage.yaml
         env:
           DEBUTIZER_ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
           DEBUTIZER_SECRET_KEY: ${{ secrets.SECRET_KEY }}

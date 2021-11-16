@@ -1,6 +1,12 @@
 name: Build Debutizer Packages
 description: Builds Debutier packages in a package directory
 
+inputs:
+  config_file:
+    description: A path to the configuration file
+    required: false
+    default: debutizer.yaml
+
 runs:
   using: composite
   steps:
@@ -26,7 +32,7 @@ runs:
       key: chroots-v3
   - name: Build Packages
     shell: bash
-    run:  debutizer build
+    run: debutizer build --config-file '{{ inputs.config_file }}'
     env:
       # Using sudo to selectively get root permissions works well in CI,
       # since sudo is configured to be password-less
