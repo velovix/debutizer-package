@@ -32,7 +32,7 @@ runs:
       key: chroots-v3
   - name: Build Packages
     shell: bash
-    run: debutizer build --config-file '{{ inputs.config_file }}'
+    run: debutizer build --config-file '${{ inputs.config_file }}'
     env:
       # Using sudo to selectively get root permissions works well in CI,
       # since sudo is configured to be password-less
