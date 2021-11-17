@@ -12,6 +12,7 @@ from debutizer.source_package import SourcePackage
 from debutizer.source_paragraph import SourceParagraph
 from debutizer.upstreams import SourceRepositoryUpstream
 from debutizer.version import Version
+from debutizer.environment import Environment
 
 _REPOSITORY_URL = "https://github.com/velovix/debutizer"
 _AUTHOR = "Tyler Compton <xaviosx@gmail.com>"
@@ -233,7 +234,7 @@ source_package.changelog.add(
 )
 
 source_package.changelog.add(
-    version="0.9.3-1",
+    version=f"0.9.3-1~{Environment.codename}1",
     urgency="medium",
     changes=[
         "* Make tar creation deterministic for the SourceRepositoryUpstream",
