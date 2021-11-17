@@ -23,10 +23,13 @@ jobs:
           DEBUTIZER_GPG_SIGNING_KEY: ${{ secrets.GPG_SIGNING_KEY }}
           DEBUTIZER_GPG_SIGNING_PASSWORD: ${{ secrets.GPG_SIGNING_PASSWORD }}
   ppa-upload:
+    needs: s3-repo-upload
     runs-on: ubuntu-20.04
     environment: prod
     steps:
       - uses: actions/checkout@v2
+      - name: Install Debutizer
+        uses: ./.github/actions/debutizer-install
       - name: Source
         run: debutizer source
       - name: Upload
