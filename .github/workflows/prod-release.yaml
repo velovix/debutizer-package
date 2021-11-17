@@ -31,7 +31,7 @@ jobs:
       - name: Install Debutizer
         uses: ./.github/actions/debutizer-install
       - name: Source
-        run: debutizer source
+        run: debutizer source --config-file debutizer.ppa.yaml
       - name: Upload
         run: debutizer upload --config-file debutizer.ppa.yaml
         env:
