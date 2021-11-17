@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  deploy-packages:
+  s3-repo-upload:
     runs-on: ubuntu-20.04
     environment: prod
     steps:
@@ -20,5 +20,17 @@ jobs:
         env:
           DEBUTIZER_ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
           DEBUTIZER_SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          DEBUTIZER_GPG_SIGNING_KEY: ${{ secrets.GPG_SIGNING_KEY }}
+          DEBUTIZER_GPG_SIGNING_PASSWORD: ${{ secrets.GPG_SIGNING_PASSWORD }}
+  ppa-upload:
+    runs-on: ubuntu-20.04
+    environment: prod
+    steps:
+      - uses: actions/checkout@v2
+      - name: Source
+        run: debutizer source
+      - name: Upload
+        run: debutizer upload --config-file debutizer.ppa.yaml
+        env:
           DEBUTIZER_GPG_SIGNING_KEY: ${{ secrets.GPG_SIGNING_KEY }}
           DEBUTIZER_GPG_SIGNING_PASSWORD: ${{ secrets.GPG_SIGNING_PASSWORD }}

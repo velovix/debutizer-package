@@ -1,0 +1,12 @@
+distributions:
+  - bionic
+  - focal
+  - hirsute
+
+upstream_repo: http://ppa.launchpad.net/velovix/debutizer/ubuntu
+upstream_components: [main]
+upstream_is_trusted: true
+
+upload_target:
+  type: ppa
+  repo: ppa:velovix/debutizer
