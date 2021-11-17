@@ -18,7 +18,7 @@ _AUTHOR = "Tyler Compton <xaviosx@gmail.com>"
 
 upstream = SourceRepositoryUpstream(
     name="debutizer",
-    version=Version.from_string("0.9.2-1"),
+    version=Version.from_string("0.9.3-1"),
     repository_url=_REPOSITORY_URL,
     revision_format="v{upstream_version}",
 )
@@ -231,5 +231,16 @@ source_package.changelog.add(
     author=_AUTHOR,
     date=datetime(2021, 11, 16, 21, 26),
 )
+
+source_package.changelog.add(
+    version="0.9.3-1",
+    urgency="medium",
+    changes=[
+        "* Make tar creation deterministic for the SourceRepositoryUpstream",
+    ],
+    author=_AUTHOR,
+    date=datetime(2021, 11, 16, 23, 16),
+)
+
 
 source_package.complete()
