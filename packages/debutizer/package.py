@@ -19,7 +19,7 @@ _AUTHOR = "Tyler Compton <xaviosx@gmail.com>"
 
 upstream = SourceRepositoryUpstream(
     name="debutizer",
-    version=Version.from_string("0.9.3-1"),
+    version=Version.from_string("0.10.0-1"),
     repository_url=_REPOSITORY_URL,
     revision_format="v{upstream_version}",
 )
@@ -241,6 +241,18 @@ source_package.changelog.add(
     ],
     author=_AUTHOR,
     date=datetime(2021, 11, 16, 23, 16),
+)
+
+source_package.changelog.add(
+    version=f"0.10.0-1~{Environment.codename}1",
+    urgency="medium",
+    changes=[
+        "* Put upstream configuration fields in a section",
+        "* Delete the artifacts directory before building",
+        "* Make package revision numbers optional in upstream versions",
+    ],
+    author=_AUTHOR,
+    date=datetime(2021, 11, 19, 15, 41),
 )
 
 
