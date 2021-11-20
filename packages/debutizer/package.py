@@ -19,7 +19,7 @@ _AUTHOR = "Tyler Compton <xaviosx@gmail.com>"
 
 upstream = SourceRepositoryUpstream(
     name="debutizer",
-    version=Version.from_string("0.10.0-1"),
+    version=Version.from_string("0.10.0"),
     repository_url=_REPOSITORY_URL,
     revision_format="v{upstream_version}",
 )

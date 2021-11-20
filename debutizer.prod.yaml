@@ -3,12 +3,14 @@ distributions:
   - focal
   - hirsute
 
-upstream_repo: http://apt.debutizer.dev
-upstream_components: [main]
-upstream_is_trusted: true
+upstream:
+  url: http://apt.debutizer.dev
+  components: [main]
+  gpg_key_url: https://raw.githubusercontent.com/velovix/debutizer/main/debutizer.key
 
 upload_target:
   type: s3
   endpoint: https://storage.googleapis.com
   bucket: apt-debutizer-dev
   sign: true
+  gpg_key_id: 24E02750
