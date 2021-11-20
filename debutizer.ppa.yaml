@@ -3,10 +3,12 @@ distributions:
   - focal
   - hirsute
 
-upstream_repo: http://ppa.launchpad.net/velovix/debutizer/ubuntu
-upstream_components: [main]
-upstream_is_trusted: true
+upstream:
+  url: http://ppa.launchpad.net/velovix/debutizer/ubuntu
+  components: [main]
+  is_trusted: true
 
 upload_target:
   type: ppa
   repo: ppa:velovix/debutizer
+  gpg_key_id: 24E02750
