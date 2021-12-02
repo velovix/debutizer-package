@@ -237,7 +237,7 @@ def create_source_package(env: Environment) -> SourcePackage:
     )
 
     source_package.changelog.add(
-        version=f"0.9.3-1~{Environment.codename}1",
+        version=f"0.9.3-1~{env.codename}1",
         urgency="medium",
         changes=[
             "* Make tar creation deterministic for the SourceRepositoryUpstream",
@@ -247,7 +247,7 @@ def create_source_package(env: Environment) -> SourcePackage:
     )
 
     source_package.changelog.add(
-        version=f"0.10.0-1~{Environment.codename}1",
+        version=f"0.10.0-1~{env.codename}1",
         urgency="medium",
         changes=[
             "* Put upstream configuration fields in a section",
@@ -259,7 +259,7 @@ def create_source_package(env: Environment) -> SourcePackage:
     )
 
     source_package.changelog.add(
-        version=f"0.11.0-1~{Environment.codename}1",
+        version=f"0.11.0-1~{env.codename}1",
         urgency="medium",
         changes=[
             "* Features:",
@@ -273,7 +273,7 @@ def create_source_package(env: Environment) -> SourcePackage:
     )
 
     source_package.changelog.add(
-        version=f"0.12.0-1~{Environment.codename}1",
+        version=f"0.12.0-1~{env.codename}1",
         urgency="medium",
         changes=[
             "* Features:",
