@@ -22,7 +22,7 @@ def create_source_package(env: Environment) -> SourcePackage:
     upstream = SourceRepositoryUpstream(
         env=env,
         name="debutizer",
-        version=Version.from_string("0.12.0"),
+        version=Version.from_string("0.12.1"),
         repository_url=_REPOSITORY_URL,
         revision_format="v{upstream_version}",
     )
@@ -289,6 +289,17 @@ def create_source_package(env: Environment) -> SourcePackage:
         ],
         author=_AUTHOR,
         date=datetime(2021, 12, 1, 23, 55),
+    )
+
+    source_package.changelog.add(
+        version=f"0.12.1-1~{env.codename}1",
+        urgency="medium",
+        changes=[
+            "* Bug fixes:",
+            "   * The build directory is now cleared after each package is sourced",
+        ],
+        author=_AUTHOR,
+        date=datetime(2021, 12, 2, 12, 47),
     )
 
     source_package.complete()
