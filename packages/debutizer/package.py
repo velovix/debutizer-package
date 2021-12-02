@@ -19,7 +19,7 @@ _AUTHOR = "Tyler Compton <xaviosx@gmail.com>"
 
 upstream = SourceRepositoryUpstream(
     name="debutizer",
-    version=Version.from_string("0.11.0"),
+    version=Version.from_string("0.12.0"),
     repository_url=_REPOSITORY_URL,
     revision_format="v{upstream_version}",
 )
@@ -267,6 +267,25 @@ source_package.changelog.add(
     ],
     author=_AUTHOR,
     date=datetime(2021, 11, 20, 13, 34),
+)
+
+source_package.changelog.add(
+    version=f"0.12.0-1~{Environment.codename}1",
+    urgency="medium",
+    changes=[
+        "* Features:",
+        "   * `SourcePackage` generation is now done in a hook instead of at the "
+        "module level in `package.py` files",
+        "   * Packages may now request build-time network access using the "
+        "`Environment.network_access` setter",
+        "   * You can now automatically start a shell in the build chroot if the "
+        "build fails using the `--shell-on-failure` flag",
+        "* Bug fixes:",
+        "   * The artifacts directory is now deleted before the `source` command "
+        "runs, mimicking the behavior of the `build` command",
+    ],
+    author=_AUTHOR,
+    date=datetime(2021, 12, 1, 23, 55),
 )
 
 
