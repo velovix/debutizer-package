@@ -6,7 +6,7 @@ runs:
   steps:
   - name: Install system dependencies
     shell: bash
-    run: apt-get install dpkg-dev gpg apt-utils quilt pbuilder s3fs devscripts
+    run: sudo apt-get install dpkg-dev gpg apt-utils quilt pbuilder s3fs devscripts
   - name: Install Debutizer
     shell: bash
     run: pip3 install debutizer
