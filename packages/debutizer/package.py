@@ -302,5 +302,16 @@ def create_source_package(env: Environment) -> SourcePackage:
         date=datetime(2021, 12, 2, 12, 47),
     )
 
+    source_package.changelog.add(
+        version=f"0.13.0-1~{env.codename}1",
+        urgency="medium",
+        changes=[
+            "* Features:",
+            "   * Add support for Ubuntu 22.04 Jammy Jellyfish",
+        ],
+        author=_AUTHOR,
+        date=datetime(2022, 6, 17, 12, 40),
+    )
+
     source_package.complete()
     return source_package
