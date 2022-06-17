@@ -4,6 +4,12 @@ description: Installs Debutizer via PyPI
 runs:
   using: composite
   steps:
+  - name: Install system dependencies
+    shell: bash
+    run: apt-get install dpkg-dev gpg apt-utils quilt pbuilder s3fs devscripts
   - name: Install Debutizer
     shell: bash
     run: pip3 install debutizer
+  - name: Ensure all system dependencies are installed
+    shell: bash
+    run: debutizer check
