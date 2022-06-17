@@ -22,7 +22,7 @@ def create_source_package(env: Environment) -> SourcePackage:
     upstream = SourceRepositoryUpstream(
         env=env,
         name="debutizer",
-        version=Version.from_string("0.12.1"),
+        version=Version.from_string("0.13.0"),
         repository_url=_REPOSITORY_URL,
         revision_format="v{upstream_version}",
     )
