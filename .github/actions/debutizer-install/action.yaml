@@ -1,13 +1,9 @@
 name: Install Debutizer
-description: Installs Debutizer via APT
+description: Installs Debutizer via PyPI
 
 runs:
   using: composite
   steps:
   - name: Install Debutizer
-    uses: myci-actions/add-deb-repo@10
-    with:
-      repo: deb http://apt.debutizer.dev focal main
-      repo-name: debutizer
-      keys-asc: https://raw.githubusercontent.com/velovix/debutizer/main/debutizer.key
-      install: debutizer
+    shell: bash
+    run: pip3 install debutizer
