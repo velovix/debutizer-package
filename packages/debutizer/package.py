@@ -32,8 +32,6 @@ def create_source_package(env: Environment) -> SourcePackage:
     source_package = SourcePackage(env, package_dir)
     source_package.source_format = "3.0 (quilt)"
 
-    source_package.set_source_format()
-
     source_package.control.source = SourceParagraph(
         source=source_package.name,
         maintainer=_AUTHOR,
@@ -310,15 +308,15 @@ def create_source_package(env: Environment) -> SourcePackage:
             urgency="medium",
             changes=[
                 "* Features:",
-                "   * `SourcePackage` generation is now done in a hook instead of at the "
-                "module level in `package.py` files",
+                "   * `SourcePackage` generation is now done in a hook instead of at "
+                "the module level in `package.py` files",
                 "   * Packages may now request build-time network access using the "
                 "`Environment.network_access` setter",
-                "   * You can now automatically start a shell in the build chroot if the "
-                "build fails using the `--shell-on-failure` flag",
+                "   * You can now automatically start a shell in the build chroot if "
+                "the build fails using the `--shell-on-failure` flag",
                 "* Bug fixes:",
-                "   * The artifacts directory is now deleted before the `source` command "
-                "runs, mimicking the behavior of the `build` command",
+                "   * The artifacts directory is now deleted before the `source` "
+                "command runs, mimicking the behavior of the `build` command",
             ],
             author=_AUTHOR,
             date=datetime(2021, 12, 1, 23, 55),
