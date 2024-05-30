@@ -2,6 +2,7 @@ distributions:
   - bionic
   - focal
   - jammy
+  - noble
 
 upstream:
   url: http://apt.debutizer.dev

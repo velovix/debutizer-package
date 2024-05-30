@@ -2,6 +2,7 @@ distributions:
   - bionic
   - focal
   - jammy
+  - noble
 
 upstream:
   url: http://ppa.launchpad.net/velovix/debutizer/ubuntu
