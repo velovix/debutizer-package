@@ -4,10 +4,10 @@ distributions:
   - jammy
   - noble
 
-upstream:
-  url: http://apt.debutizer.dev
-  components: [main]
-  gpg_key_url: https://raw.githubusercontent.com/velovix/debutizer/main/debutizer.key
+#upstream:
+#  url: http://apt.debutizer.dev
+#  components: [main]
+#  gpg_key_url: https://raw.githubusercontent.com/velovix/debutizer/main/debutizer.key
 
 upload_target:
   type: s3
