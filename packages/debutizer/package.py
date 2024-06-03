@@ -23,7 +23,7 @@ def create_source_package(env: Environment) -> SourcePackage:
     upstream = GitUpstream(
         env=env,
         name="debutizer",
-        version=Version.from_string("0.13.0"),
+        version=Version.from_string("0.14.0"),
         repository_url=_REPOSITORY_URL,
         revision="v{upstream_version}",
     )
@@ -346,6 +346,20 @@ def create_source_package(env: Environment) -> SourcePackage:
             ],
             author=_AUTHOR,
             date=datetime(2022, 6, 17, 12, 40),
+        )
+    )
+
+    source_package.changelog.add(
+        ChangeBlock(
+            version=f"0.14.0-1~{env.codename}1",
+            urgency="medium",
+            changes=[
+                "* Features:",
+                "   * Add support for Ubuntu 24.04 Noble Numbat",
+                "   * Remove support for Ubuntu 18.04",
+            ],
+            author=_AUTHOR,
+            date=datetime(2024, 6, 3, 15, 18),
         )
     )
 
